@@ -1,16 +1,24 @@
+const { Router } = require("express")
 const express=require("express")
+// const database =require("./database/db")
+const categoryroutes =require("./routes/categoryroutes")
 const app=express()
-app.get("/products/cases")
+app.use(express.json())
+// console.log(categoryroutes.stack)
+app.use("/category",categoryroutes)
+// app.get("/",(req,res)=>{
+  
+//   try{
+ 
+//   }
+//   catch(error){
+//     res.status(203).send(error.message)
+   
+//   }
+  
+// })
 
-app.get("/products/bands")
-app.get("/products/protection")
-app.get("/products/:categories",(req,res)=>{
-  console.log(req.params)
-  res.send("ping")
 
-
-}
-)
 app.listen(3001,()=>{
   console.log("server is rumnnig")
 })
